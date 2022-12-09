@@ -1,0 +1,43 @@
+﻿@model LoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @await Html.PartialAsync("MetatagsPartial")
+    @await Html.PartialAsync("CssPartial")
+</head>
+<body>
+    <form asp-area="" asp-controller="Account" asp-action="Login" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
+        <div class="form">
+            <h1>Sign in to Game Store</h1>
+
+            <div asp-validation-summary="All"></div>
+
+            <div class="input-form">
+                <input type="text" asp-for="UserLogin" placeholder="Login">
+            </div>
+
+            <div class="input-form">
+                <input type="password" asp-for="Password" placeholder="Password">
+            </div>
+
+            <div class="input-form">
+                <div class="label-for">
+                    <label asp-for="RememberMe" class="lb-left"></label>
+                    <input asp-for="RememberMe" class="lb-right" />
+                    <span asp-validation-for="RememberMe"></span>
+                </div>
+            </div>
+
+            <div class="input-form">
+                <input type="submit" value="Sign in">
+            </div>
+            <a href="#" class="forget">Forgot your password?</a>
+        </div>
+    </form>
+</body>
+</html>

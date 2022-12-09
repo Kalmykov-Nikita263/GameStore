@@ -1,8 +1,30 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IQueryable<Game>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="App">
+    <div class="home-page">
+        @foreach (Game game in Model)
+        {
+            <div class="game-item">
+                <div class="game-cover" style="background-image: url('@game.TitleImage')">
+                </div>
+
+                <div class="game-item__details">
+                    <span class="game-item__title">@game.Name</span>
+
+                    <div class="game-item__genre">
+                        @game.Category
+                    </div>
+
+                    <div class="game-item__buy">
+                        <div class="game-buy">
+                            <span class="game-buy__price">@game.Price.ToString("c")</span>
+
+                            <button class="btn__ btn--primary">В корзину</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
 </div>

@@ -1,0 +1,46 @@
+﻿@model Game
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @await Html.PartialAsync("MetatagsPartial")
+    @await Html.PartialAsync("CssPartial")
+</head>
+<body>
+    <form asp-area="Admin" asp-controller="Game" asp-action="Edit" method="post">
+        <div class="form">
+            <div asp-validation-summary="All"></div>
+
+            <div class="input-form">
+                <input type="text" asp-for="Name" placeholder="Name">
+            </div>
+
+            <div class="input-form">
+                <input type="text" asp-for="Description" placeholder="Description">
+            </div>
+
+            <div class="input-form">
+                <input type="text" asp-for="Category" placeholder="Category">
+            </div>
+
+            <div class="input-form">
+                <input type="text" asp-for="TitleImage" placeholder="Title image">
+            </div>
+
+            <div class="input-form">
+                <input type="text" asp-for="Video" placeholder="Video">
+            </div>
+
+            <div class="input-form">
+                <input type="text" asp-for="Price" placeholder="Price">
+            </div>
+
+            <div class="input-form">
+                <input type="submit" value="Save changes">
+            </div>
+        </div>
+    </form>
+</body>
+</html>

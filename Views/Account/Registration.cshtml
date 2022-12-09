@@ -1,0 +1,42 @@
+﻿@model RegistrationViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @await Html.PartialAsync("MetatagsPartial")
+    @await Html.PartialAsync("CssPartial")
+</head>
+<body>
+    <form asp-area="" asp-controller="Account" asp-action="Registration" method="post" asp-route-returnUrl="@ViewBag.returnUrl">
+        <div class="form">
+            <h1>Sign up to Game Store</h1>
+
+            <div asp-validation-summary="All"></div>
+
+            <div class="input-form">
+                <input type="text" asp-for="UserLogin" placeholder="Login">
+            </div>
+
+            <div class="input-form">
+                <input type="email" asp-for="Email" placeholder="Email">
+            </div>
+
+            <div class="input-form">
+                <input type="password" asp-for="Password" placeholder="Password">
+            </div>
+
+            <div class="input-form">
+                <input type="password" asp-for="PasswordConfirmation" placeholder="Repeat password">
+            </div>
+
+            <div class="input-form">
+                <input type="submit" value="Sign up">
+            </div>
+        </div>
+    </form>
+</body>
+</html>

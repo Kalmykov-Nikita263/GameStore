@@ -1,0 +1,53 @@
+﻿<div class="header">
+    <div class="wrapper">
+        <a class="header__store-title" asp-area="" asp-controller="Home" asp-action="Index">
+            Game Store
+        </a>
+    </div>
+
+    @if (User.Identity.Name == "admin")
+    {
+        <div class="wrapper header__cart-btn-wrapper">
+            <div class="cart-block">
+                <a class="header__store-title" style="cursor: pointer;" href="/Admin">
+                    @User.Identity.Name
+                </a>
+
+                <a class="header__store-title" asp-controller="Account" asp-action="Logout">Выйти</a>
+            </div>
+        </div>
+    }
+
+    else if (User.Identity.IsAuthenticated)
+    {
+        int price = 0;
+
+        <div class="wrapper header__cart-btn-wrapper">
+            <div class="cart-block">
+                <a class="header__store-title" style="cursor: pointer;">
+                    @User.Identity.Name
+                </a>
+
+                <a class="header__store-title" asp-controller="Account" asp-action="Logout">Выйти</a>
+
+                <img class="cart-block__icon" src="~/images/icons/BiCartAlt.png" width="30px" height="25px" />
+                <span class="cart-block__total-price">@price.ToString("c")</span>
+            </div>
+        </div>
+    }
+
+    else
+    {
+        <div class="wrapper header__cart-btn-wrapper">
+            <div class="cart-block">
+                <a class="header__store-title" asp-controller="Account" asp-action="Login">
+                    Авторизоваться
+                </a>
+
+                <a class="header__store-title" asp-controller="Account" asp-action="Registration">
+                    Зарегистрироваться
+                </a>
+            </div>
+        </div>
+    }
+</div>
